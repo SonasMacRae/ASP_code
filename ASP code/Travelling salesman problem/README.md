@@ -23,3 +23,6 @@ Because the last method is incredibly unefficient for calculating a route for a 
 This works by travelling to the nearest neighbour until there are no more locations to travel to.
 The nearest neighbour technique won't always find the most efficient path, but it will find a soluition in an appropriate amount of time when working with a large number of locations. 
 
+<img width="524" alt="Screenshot 2019-06-13 at 14 17 36" src="https://user-images.githubusercontent.com/36636474/59435697-0f49cc80-8de6-11e9-8772-2aecc0c386f5.png">
+
+
