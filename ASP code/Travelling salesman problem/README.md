@@ -15,3 +15,11 @@ This is one of the techniques used to find an optimal path between the locations
 
 The compile time of this brute force method on 5 locations is under 1 second, when the number of locations are around 20 or more, the compile time is years, at 100 locations the compile time is astronomical, by the time the script finishes compiling the Earth will be long gone...
 
+Note: The algorithm written to demonstrate this has to add every possible path to a list before it can start calculating the shortest route, nothing is displayed whilst this happens, the more permuatations there are to calculate the longer the wait is.
+
+## Nearest neighbour method
+Because the last method is incredibly unefficient for calculating a route for a large number of locations, the nearest neighbour technique is one that is much more appropriate for these types of problems.
+
+This works by travelling to the nearest neighbour until there are no more locations to travel to.
+The nearest neighbour technique won't always find the most efficient path, but it will find a soluition in an appropriate amount of time when working with a large number of locations. 
+
