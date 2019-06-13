@@ -11,10 +11,7 @@ For this activity a 100x100 grid is used where locations are stored as (x,y) co-
 ## Brute force method
 This is one of the techniques used to find an optimal path between the locations. It works by calculating the length of all possible routes between the locations looking for the shortest route. 
 
-TABLE
-Pros -> Will always find the shortest route, Efficient if there are few locations to search
-
-Cons -> Compile time gets exponentially longer the more locations are added, Can be memory intensive
+<img width="689" alt="Screenshot 2019-06-13 at 13 34 41" src="https://user-images.githubusercontent.com/36636474/59432805-166ddc00-8de0-11e9-8851-10b82b8d3fdb.png">
 
 The compile time of this brute force method on 5 locations is under 1 second, when the number of locations are around 20 or more, the compile time is years, at 100 locations the compile time is astronomical, by the time the script finishes compiling the Earth will be long gone...
 
