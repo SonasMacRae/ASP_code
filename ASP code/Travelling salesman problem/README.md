@@ -12,8 +12,9 @@ For this activity a 100x100 grid is used where locations are stored as (x,y) co-
 This is one of the techniques used to find an optimal path between the locations. It works by calculating the length of all possible routes between the locations looking for the shortest route. 
 
 TABLE
-Pros -> Will always find the shortest route, efficient if there are few locations to search
+Pros -> Will always find the shortest route, Efficient if there are few locations to search
 
-Cons -> Compile time gets exponentially longer the more locations are added, can be memory intensive
+Cons -> Compile time gets exponentially longer the more locations are added, Can be memory intensive
 
 The compile time of this brute force method on 5 locations is under 1 second, when the number of locations are around 20 or more, the compile time is years, at 100 locations the compile time is astronomical, by the time the script finishes compiling the Earth will be long gone...
+
