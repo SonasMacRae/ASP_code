@@ -6,7 +6,7 @@ This problem is especially useful to demonstrate the power of planning solutions
 The techniques used to demomnstrate this point are below:
 
 ## Environment
-For this activity a 100x100 grid is used where locations are stored as (x,y) co-ordinates. Locations can be added or removed from the grid and at any point the co-ordinates of all of the locations can be viewed.
+For this activity a 100x100 grid is used where locations are stored as (x,y) co-ordinates. Locations can be added or removed from the grid and at any point, the co-ordinates of all of the locations can be viewed.
 
 ## Brute force method
 This is one of the techniques used to find an optimal path between the locations. It works by calculating the length of all possible routes between the locations looking for the shortest route. 
