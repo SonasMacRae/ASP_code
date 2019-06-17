@@ -81,7 +81,7 @@ def Bot(board, snake, simulationFlag):
         board.Render(snake, simulationFlag)
 
         if simulationFlag == True:
-            time.sleep(0.5)
+            time.sleep(0.2)
             os.system('cls||clear')
 
 
@@ -102,24 +102,30 @@ def UserUpdate(board, snake):
         board.Render(snake, True)
 
 def Main():
-    print("Welcome to snake\n")
-    print("1 Bot")
-    print("2 You play")
-    print("3 Bot simulation")
+    temp = 0
+    while temp !=4:
+        snake = s.Snake()
+        board = b.Board()
+        print("Welcome to snake\n")
+        print("1 Bot")
+        print("2 You play")
+        print("3 Bot simulation")
 
-    temp = int(input())
-    print(temp)
+        temp = int(input())
 
-    if temp == 1:
-        Bot(board, snake, True)
-    if temp == 2:
-        print("this is where we let the user play")
-    if temp == 3:
-        Simulation()
+        if temp == 1:
+            Bot(board, snake, True)
+        if temp == 2:
+            print("this is where we let the user play")
+        if temp == 3:
+            Simulation()
+        if temp == 4:
+            print("Bye!")
 
 def Simulation():
     totalScore = 0
-    iterations = 100
+    highScore =0
+    iterations = 20000
     for x in range(iterations):
         if x % 50 == 0:
             print("%.0f%% complete" %((x/iterations)*100), end='\r')
@@ -127,8 +133,10 @@ def Simulation():
         board = b.Board()
         board.SpawnPickup(snake.body)
         Bot(board,snake, False)
+        if board.score > highScore:
+            highScore = board.score
         totalScore += board.score
-    print("this is total score ", totalScore, "also average ", (totalScore/iterations))
+    print("this is total score ", totalScore, "also average ", (totalScore/iterations), " and the highest recorded run was: ", highScore)
 
 Main()
 
