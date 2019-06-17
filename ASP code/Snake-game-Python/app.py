@@ -22,7 +22,7 @@ def PathScores(board, snake, destination):
         tiles.append([])
         for y in range(10):
             tiles[x].append(Distance(destination,(x,y)))
-            if(board[x][y] == "b"):
+            if(board[x][y] == "■"):
                 tiles[x][y] = 999
 
     controls = ['w','s','a','d']
