@@ -15,3 +15,5 @@ We have made the code from this project accessible for anyone to look at and pla
 Well, the goal for the snake is to eat fruit and avoid death
 
 ![Snake](https://i.imgur.com/RSj70JC.gif)
+
+The board is a 10x10 grid, initially each square is assigned a value equal to its manhattan distance from the fruit. Squares which the snake is occupying have a score higher than any other square. The bot moves the head of the snake to the lowest scoring neighbour, this will naturally gravitate the snake towards the fruit and stop it from trying to eat itself and die (most of the time)
