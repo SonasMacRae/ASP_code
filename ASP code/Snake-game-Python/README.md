@@ -12,7 +12,4 @@ We have made the code from this project accessible for anyone to look at and pla
 ## How does it work?
 Well, the goal for the snake is to 
 
-andrew make gifs of:
-snake starting off... 
-snake at a length of around 15-18 ish... 
-snake dying (RIP)
+![Snake](https://i.imgur.com/RSj70JC.gif)
