@@ -3,10 +3,8 @@ This is a project that was developed by two third year Computing Science student
 
 ## What actually is it?
 It's a bot that plays a traditional snake game, this application has 2 modes:
-- First item
-- Second item
-- Third item
-- Fourth item
+- Bot (where you can watch the bot play the game)
+- Simulation (where the bot plays the game over and over again at a very high speed, the average and high score is recorded)
 
 ## What is the point of this?
 I'm glad you asked, the purpose of this is to demonstrate what can be achieved from the knowledge gained at University. This project also shows that you can have fun, it is possible to create projects of your interest and that there is nothing stopping you. 
