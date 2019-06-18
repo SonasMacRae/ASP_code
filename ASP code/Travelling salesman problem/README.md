@@ -1,5 +1,7 @@
 # How to use the application
-This application runs on the **terminal/command line**, navigate the menu's by entering the corresponding number into the terminal and press enter.
+This application runs on the **terminal/command line**, open up your **terminal/command line** and navigate to the folder which holds this application and enter **python Travelling salesman problem.py** 
+
+navigate the menu's by entering the corresponding number into the terminal and press enter.
 This application is used to demonstrate the processing speed between two different methods when calculating an optimal path between a set of nodes on a grid.
 
 # Travelling salesman problem
