@@ -1,3 +1,6 @@
+# How to use the application
+This is how the application works etc etc etc
+
 # Travelling salesman problem
 The travelling salesman problem is a classic algorithmic problem in the field of computer science. The goal being to visit every location on a map and return to the starting location in the most efficient way. This may be defined by being the fastest, shortest or cheapest path, or a combination of all of these.
 
