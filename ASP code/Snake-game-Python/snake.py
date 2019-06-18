@@ -45,7 +45,7 @@ class Snake:
             return True
         self.head = head
 
-        if board.board[head[0]][head[1]] == "■" and head != self.body[-1]:
+        if board.board[head[0]][head[1]] == "s" and head != self.body[-1]:
             return False
 
         if head == board.pickup:

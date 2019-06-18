@@ -16,54 +16,71 @@ def Distance(x, y):
     tempY = abs(x[1] - y[1])
     return (tempX + tempY)
 
+def BodyPosition(snake, ele):
+    for i in range(len(snake)):
+        if snake[i] == ele:
+            return len(snake) - i
+    return 0
 def PathScores(board, snake, destination):
     tiles = []
     for x in range(10):
         tiles.append([])
         for y in range(10):
             tiles[x].append(Distance(destination,(x,y)))
-            if(board[x][y] == "s"):
-                tiles[x][y] = 999
-
+            if(board[x][y] == "■"):
+                tiles[x][y] *= BodyPosition(snake,(x,y))
     controls = ['w','s','a','d']
-    scores = []
-
+    path = []
     head = snake[0]
-
+    found = False
     if len(snake) > 1:
-        tiles[snake[1][0]][snake[1][1]] = 1100
+            tiles[snake[1][0]][snake[1][1]] = 1100
+    while not found:
+        scores = []
+        # up
+        upCoord = (head[0] -1, head[1])
+        if upCoord[0] < 0:
+            scores.append(1000)
+        else:
+            scores.append(tiles[upCoord[0]][upCoord[1]])
 
-    # up
-    upCoord = (head[0] -1, head[1])
-    if upCoord[0] < 0:
-        scores.append(1000)
-    else:
-        scores.append(tiles[upCoord[0]][upCoord[1]])
+        # down
+        downCoord = (head[0] + 1, head[1])
+        if downCoord[0] > 9:
+            scores.append(1000)
+        else:
+            scores.append(tiles[downCoord[0]][downCoord[1]])
 
-    # down
-    downCoord = (head[0] + 1, head[1])
-    if downCoord[0] > 9:
-        scores.append(1000)
-    else:
-        scores.append(tiles[downCoord[0]][downCoord[1]])
+        # left
+        leftCoord = (head[0], head[1] - 1)
+        if leftCoord[1] < 0:
+            scores.append(1000)
+        else:
+            scores.append(tiles[leftCoord[0]][leftCoord[1]])
 
-    # left
-    leftCoord = (head[0], head[1] - 1)
-    if leftCoord[1] < 0:
-        scores.append(1000)
-    else:
-        scores.append(tiles[leftCoord[0]][leftCoord[1]])
+        # right
+        rightCoord = (head[0], head[1] + 1)
+        if rightCoord[1] > 9:
+            scores.append(1000)
+        else:
+            scores.append(tiles[rightCoord[0]][rightCoord[1]])
 
-    # right
-    rightCoord = (head[0], head[1] + 1)
-    if rightCoord[1] > 9:
-        scores.append(1000)
-    else:
-        scores.append(tiles[rightCoord[0]][rightCoord[1]])
-
-    minScore = min(scores)
-    index = scores.index(minScore)
-    return controls[index]
+        minScore = min(scores)
+        index = scores.index(minScore)
+        path.append(controls[index])
+        if controls[index] == 'w':
+            head = upCoord
+        if controls[index] == 's':
+            head = downCoord
+        if controls[index] == 'a':
+            head = leftCoord
+        if controls[index] == 'd':
+            head = rightCoord
+        if head == destination:
+            found = True
+        else:
+            print("more", end='')
+    return path
 
 def Bot(board, snake, simulationFlag):
     direction = "w"
@@ -73,16 +90,18 @@ def Bot(board, snake, simulationFlag):
     destination = board.pickup
     flag = True
     while flag:
-
         destination = board.pickup
-        flag = snake.Move(PathScores(board.board, snake.body, destination), board)
-        head = snake.head
+        path = PathScores(board.board, snake.body, destination)
+        print(path)
+        for p in path:
+            flag = snake.Move(p, board)
+            head = snake.head
+            board.Render(snake, simulationFlag)
 
-        board.Render(snake, simulationFlag)
-
-        if simulationFlag == True:
-            time.sleep(0.2)
-            os.system('cls||clear')
+            if simulationFlag == True:
+                time.sleep(0.2)
+                #print('\n' *5)
+                #os.system('cls||clear')
 
 
 
