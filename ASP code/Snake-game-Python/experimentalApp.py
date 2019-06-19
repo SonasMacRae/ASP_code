@@ -14,7 +14,7 @@ board.SpawnPickup(snake.body)
 def BodyPosition(snake, ele):
     for i in range(len(snake)):
         if snake[i] == ele:
-            return len(snake)
+            return len(snake)-i
     return 0
 
 def PathScores(board,snake, destination):
@@ -27,6 +27,7 @@ def PathScores(board,snake, destination):
                 maze[x].append(0)
             else:
                 maze[x].append(BodyPosition(snake,(x,y)))
+    #print(maze)
     moves = n.astar(maze,start,destination)
     controls = ['a','d','s','w']
     positions = [(0, 1), (0, -1), (-1, 0), (1, 0)]
@@ -50,9 +51,11 @@ def Bot(board, snake, simulationFlag):
     while flag:
         destination = board.pickup
         path = PathScores(board.board, snake.body, destination)
+        #print(path)
         for p in path:
-            time.sleep(0.2)
+            time.sleep(0.25)
             os.system('cls||clear')
+            #print('\n' *5)
             flag = snake.Move(p, board)
             head = snake.head
             board.Render(snake, simulationFlag)

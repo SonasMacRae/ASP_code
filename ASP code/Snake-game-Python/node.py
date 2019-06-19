@@ -55,7 +55,6 @@ def astar(maze, start, end):
                 path.append(current.position)
                 current = current.parent
             return path[::-1] # Return reversed path
-
         # Generate children
         children = []
         for new_position in [(0, -1), (0, 1), (-1, 0), (1, 0)]: # Adjacent squares
@@ -69,7 +68,7 @@ def astar(maze, start, end):
 
             # Make sure walkable terrain
             # needs to be adapted for snake
-            if maze[node_position[0]][node_position[1]] - (current_node.g + 1) > 0:
+            if maze[node_position[0]][node_position[1]] - (current_node.g +1) > 0:
                 continue
 
             # Create new node
