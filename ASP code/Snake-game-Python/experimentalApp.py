@@ -4,104 +4,62 @@ import math
 import time
 import board as b
 import snake as s
-
+import node as n
 
 
 snake = s.Snake()
 board = b.Board()
 board.SpawnPickup(snake.body)
 
-def Distance(x, y):
-    tempX = abs(x[0] - y[0])
-    tempY = abs(x[1] - y[1])
-    return (tempX + tempY)
-
 def BodyPosition(snake, ele):
     for i in range(len(snake)):
         if snake[i] == ele:
-            return len(snake) - i
+            return len(snake)
     return 0
-def PathScores(board, snake, destination):
-    tiles = []
+
+def PathScores(board,snake, destination):
+    start = snake[0]
+    maze = []
     for x in range(10):
-        tiles.append([])
+        maze.append([])
         for y in range(10):
-            tiles[x].append(Distance(destination,(x,y)))
-            if(board[x][y] == "■"):
-                tiles[x][y] *= BodyPosition(snake,(x,y))
-    controls = ['w','s','a','d']
+            if board[x][y].isdigit():
+                maze[x].append(0)
+            else:
+                maze[x].append(BodyPosition(snake,(x,y)))
+    moves = n.astar(maze,start,destination)
+    controls = ['a','d','s','w']
+    positions = [(0, 1), (0, -1), (-1, 0), (1, 0)]
     path = []
-    head = snake[0]
-    found = False
-    if len(snake) > 1:
-            tiles[snake[1][0]][snake[1][1]] = 1100
-    while not found:
-        scores = []
-        # up
-        upCoord = (head[0] -1, head[1])
-        if upCoord[0] < 0:
-            scores.append(1000)
-        else:
-            scores.append(tiles[upCoord[0]][upCoord[1]])
+    current = moves[0]
+    for i in range(1,len(moves)):
+        m = moves[i]
+        for j in range(len(positions)):
+            if (m[0] + positions[j][0]) == current[0] and (m[1]+ positions[j][1] == current[1]):
+                current = moves[i]
+                path.append(controls[j])
+                break
 
-        # down
-        downCoord = (head[0] + 1, head[1])
-        if downCoord[0] > 9:
-            scores.append(1000)
-        else:
-            scores.append(tiles[downCoord[0]][downCoord[1]])
-
-        # left
-        leftCoord = (head[0], head[1] - 1)
-        if leftCoord[1] < 0:
-            scores.append(1000)
-        else:
-            scores.append(tiles[leftCoord[0]][leftCoord[1]])
-
-        # right
-        rightCoord = (head[0], head[1] + 1)
-        if rightCoord[1] > 9:
-            scores.append(1000)
-        else:
-            scores.append(tiles[rightCoord[0]][rightCoord[1]])
-
-        minScore = min(scores)
-        index = scores.index(minScore)
-        path.append(controls[index])
-        if controls[index] == 'w':
-            head = upCoord
-        if controls[index] == 's':
-            head = downCoord
-        if controls[index] == 'a':
-            head = leftCoord
-        if controls[index] == 'd':
-            head = rightCoord
-        if head == destination:
-            found = True
-        else:
-            print("more", end='')
     return path
+
 
 def Bot(board, snake, simulationFlag):
     direction = "w"
-
     head = snake.head
-    destination = (0,0)
-    destination = board.pickup
     flag = True
     while flag:
         destination = board.pickup
         path = PathScores(board.board, snake.body, destination)
-        print(path)
         for p in path:
+            time.sleep(0.2)
+            os.system('cls||clear')
             flag = snake.Move(p, board)
             head = snake.head
             board.Render(snake, simulationFlag)
 
-            if simulationFlag == True:
-                time.sleep(0.2)
-                #print('\n' *5)
-                #os.system('cls||clear')
+        #if not simulationFlag == True:
+            #time.sleep(0.2)
+            #os.system('cls||clear')
 
 
 
