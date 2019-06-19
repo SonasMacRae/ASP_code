@@ -1,10 +1,10 @@
-# Bubble Sort
+# 1 - Bubble Sort
 
 For this challenge, the goal is to write the simple sort algorithm: bubble sort. For those unfamiliar, bubble sort works by repeatedly stepping through the list, compares adjacent pairs and swaps them if they are in the wrong order.
 ### Example:
 ![bubblesort](http://miftyisbored.com/wp-content/uploads/2015/01/bubble-sort-demo.jpg)
 
-# Name surrounded by stars challenge
+# 2 - Name surrounded by stars challenge
 
 In this challenge, the goal is to write an application that prompt the user for an input, before outputting the input surrounded by stars, an example output is:
 
@@ -25,7 +25,7 @@ output = ""<br/>
 <b>PRINT</b>(output)<br/>
 
 
-# Prime numbers challenge (slightly more difficult than the last challenge)
+# 3 - Prime numbers challenge (slightly more difficult than the last challenge)
 
 What is the sum of all of the prime numbers below 10,000 whose digits are all prime numbers themselves. 
 An example would be '3257' since it is a prime number and all of its digits '3','2','5' and '7' are all prime numbers.
@@ -39,7 +39,7 @@ Because you may not have enough time to complete this challenge without any help
 <img width="528" alt="Screenshot 2019-06-11 at 20 45 33" src="https://user-images.githubusercontent.com/36636474/59301770-4d31de00-8c8a-11e9-801d-428bf6bbd6f0.png">
 
 
-# Snake
+# 4 - Snake
 This is a project that was developed by two third year Computing Science students who had too much spare time.
 
 ## What actually is it?
@@ -66,7 +66,7 @@ This application runs on the **terminal/command line**, open up your **terminal/
 navigate the menu's by entering the corresponding number into the terminal and press enter.
 This application is used to demonstrate the processing speed between two different methods when calculating an optimal path between a set of nodes on a grid.
 
-# Travelling salesman problem
+# 5 - Travelling salesman problem
 The travelling salesman problem is a classic algorithmic problem in the field of computer science. The goal being to visit every location on a map and return to the starting location in the most efficient way. This may be defined by being the fastest, shortest or cheapest path, or a combination of all of these.
 
 This problem is especially useful to demonstrate the power of planning solutions to problems, this activity shows how important it is to not always the best approach to dive head-first into a problem without giving it much thought.
@@ -94,7 +94,7 @@ The nearest neighbour technique won't always find the most efficient path, but i
 <img width="524" alt="Screenshot 2019-06-13 at 14 17 36" src="https://user-images.githubusercontent.com/36636474/59435697-0f49cc80-8de6-11e9-8772-2aecc0c386f5.png">
 
 
-# Tree printing challenge
+# 6 - Tree printing challenge
 
 Using the terminal/command line of your computer, prompt the user for an input before printing the input surrounded by stars.
 
