@@ -1,4 +1,6 @@
 size = int(input("Enter the size of the tree: "))
+print("")
+print("")
 
 stars = 1
 blank = size - 1
@@ -20,3 +22,5 @@ for x in range(size):
 for x in range(size - 1):
     print(" ", end = "")
 print("*")
+print("")
+print("")

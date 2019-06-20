@@ -81,7 +81,7 @@ def Bot(board, snake, simulationFlag):
         board.Render(snake, simulationFlag)
 
         if simulationFlag == True:
-            time.sleep(0.5)
+            time.sleep(0.05)
             os.system('cls||clear')
 
 
@@ -119,7 +119,7 @@ def Main():
 
 def Simulation():
     totalScore = 0
-    iterations = 100
+    iterations = 1000
     for x in range(iterations):
         if x % 50 == 0:
             print("%.0f%% complete" %((x/iterations)*100), end='\r')
