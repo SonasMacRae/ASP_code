@@ -1,6 +1,6 @@
 # Tree printing challenge
 
-Using the terminal/command line of your computer, prompt the user for an input before printing the input surrounded by stars.
+Write an command line application which prompts the user for an integer input, then prints a tree of that size.
 
 The image below demonstrates what it should look like:
 
