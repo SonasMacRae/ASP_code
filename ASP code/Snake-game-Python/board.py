@@ -8,11 +8,11 @@ import snake as Snake
 class Board:
 
     board = []
-    pickup = (0,0)
+    pickup = (5,5)
     score = -1
     def __init__(self):
         self.CleanBoard()
-        self.pickup = (0,0)
+        self.pickup = (5,5)
 
     def CleanBoard(self):
         self.board = []
@@ -25,10 +25,10 @@ class Board:
         self.CleanBoard()
 
         for x in snake.body:
-            self.board[x[0]][x[1]] = "b"
+            self.board[x[0]][x[1]] = "s"
 
-        self.board[snake.head[0]][snake.head[1]] = "h"
-        self.board[self.pickup[0]][self.pickup[1]] = "p"
+        self.board[snake.head[0]][snake.head[1]] = "H"
+        self.board[self.pickup[0]][self.pickup[1]] = "P"
 
         if flag == True:
             for x in range(10):
@@ -44,7 +44,7 @@ class Board:
         self.score += 1
         for x in range(10):
             for y in range(10):
-                if self.board[x][y] != 'h' and self.board[x][y] != 'b':
+                if (x,y) not in snake:
                     temp = (x, y)
                     tiles.append(temp)
         temp = random.randint(0, len(tiles) - 1)
