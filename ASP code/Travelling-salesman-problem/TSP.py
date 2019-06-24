@@ -1,8 +1,4 @@
-# check the number of possible routes on google
-# between n locations to be sure
 # check if brute force goes back to the starting node
-
-
 
 import math
 import time
@@ -11,14 +7,17 @@ import os
 import copy
 from itertools import permutations
 
-locations = [(0,6), (1,3), (2,7), (3,3), (5,2), (6,5), (9,8)]
-
-def Distance(x, y):
-    tempX = (x[0] - y[0]) ** 2
-    tempY = (x[1] - y[1]) ** 2
-    return math.sqrt(tempX + tempY)
+locations = [(1,6), (2,3), (3,7), (4,3), (6,2), (7,5), (9,8)]
 
 
+# Calculates Manhattan distance between two points
+# a and b hold the x,y coordinates 
+def Distance(a, b):
+    tempA = (a[0] - b[0]) ** 2
+    tempB = (a[1] - b[1]) ** 2
+    return math.sqrt(tempA + tempB)
+
+# Calculates the distance of a path (list of points)
 def TotalDistance(inputList):
     total = 0
     for x in range(len(inputList) - 1):
@@ -26,6 +25,7 @@ def TotalDistance(inputList):
     return total
 
 
+# Adds a new location to the list
 def AddCity(locations):
     temp = (random.randint(0, 100), random.randint(0, 100))
     if temp in locations:
@@ -36,6 +36,7 @@ def AddCity(locations):
     return locations
 
 
+# Removes a new location to the list
 def TakeAwayCity(locations):
     if len(locations) > 2:
         print("%s a city at coordinates " %RandomPhraseDestroy(), locations[-1])
@@ -46,6 +47,8 @@ def TakeAwayCity(locations):
     return locations
 
 
+# Just for fun, everytime a location is removed, one of these
+# words are used to describe how it got removed
 def RandomPhraseDestroy():
     phrases = ["Destroyed","Demolished","Blew up","Nuked","Devastated","Kicked out","Abandoned"
     ,"Ravaged","Incinerated","Annihilated","Disintegrated","Wiped out","Ruined","Deserted","Eliminated",
@@ -53,6 +56,8 @@ def RandomPhraseDestroy():
     return phrases[random.randint(0, len(phrases) - 1)]
 
 
+# Just for fun, everytime a location is added, one of these
+# words are used to describe how it got added
 def RandomPhraseAdd():
     phrases = ["Built","Assembled","Completed","Manufactured","Produced","Put together","Created"
     ,"Constructed","Established","Produced","Whipped up","Threw together","Found","Created","Spawned",
@@ -64,28 +69,34 @@ def RandomPhraseAdd():
 def ViewList(locations):
     print(locations)
 
+# Brute force way of getting best path
 def BruteForce(locations):
     start_time = time.time()
+    # Gets all the path combinations
     p = permutations(locations)
     p = list(p)
     smallestIndex = 0
     smallestDistance = 999999
 
     counter = 0
-
+    # Go through all the paths
     for x in p:
+        x = list(x)
+        x.append(x[0])
         if counter % 1000 == 0:
             print("%.2f%% complete" %(counter/len(p)*100),  end='\r')
+        # gets the path distance
         tempDistance = TotalDistance(x)
+        # if this path is shorter than previous best, remember this
         if smallestDistance > tempDistance:
             smallestDistance = tempDistance
             smallestIndex = counter
         counter += 1
-
-    print(p[smallestIndex], " is the path, the distance is %.2f" %smallestDistance)
+    # prints smallest distance found
+    print(p[smallestIndex], p[smallestIndex][0], " is the path, the distance is %.2f" %smallestDistance)
     print("This process took %.4f seconds to complete" %int(time.time() - start_time))
 
-
+# NN algorithm for finding a path
 def NearestNeighbour(locations):
     tempLocations = copy.deepcopy(locations)
     currentLocation = tempLocations[0]
