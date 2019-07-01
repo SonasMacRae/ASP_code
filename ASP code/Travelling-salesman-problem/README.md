@@ -1,7 +1,8 @@
 # How to use the application
 
 **To use this application you need to install Matplotlib**
-https://matplotlib.org/3.1.0/faq/installing_faq.html
+<a href="https://matplotlib.org/3.1.0/faq/installing_faq.html" target="_blank">example</a>
+
 
 This application runs on the **terminal/command line**, open up your **terminal/command line** and navigate to the folder which holds this application and enter **python TSP.py** 
 
