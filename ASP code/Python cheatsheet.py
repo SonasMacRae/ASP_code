@@ -25,7 +25,7 @@ newNumber = 5 + 5
 newNumber = 5 - 5
 newNumber = 5 / 5
 newNumber = 5 * 5
-newNumber = 10 % 4  # (This is remainder) 
+newNumber = 10 % 4  # (This is remainder)
 
 # If statements
 if 2 < 5:
@@ -46,3 +46,35 @@ for x in range(5, 10):
     print(x)
 for x in variable4:
     print(x)
+
+# Functions
+def PrintInput(example):
+    print(example)
+
+def Math(x,y):
+    if not str(x).isdigit() or not str(y).isdigit():
+        print("The inputs must be integers")
+        return
+    return x + y
+
+# Recursion is a type of function that calls itself
+# it can be very useful when used correctly
+def Recursion(x):
+    if not str(x).isdigit():
+        print("The input must be an positive integer")
+        return x
+
+    if x == 100:
+        return x
+
+    if x > 100 or x < 0:
+        return Recursion(0)
+
+    x += 1
+
+    return Recursion(x)
+
+# Calling functions
+PrintInput("Hello world!")
+print(Math(5,10))
+print(Recursion(10))

@@ -18,6 +18,6 @@ for x in range(len(userInput) + 4):
 # Step 3 - Print
 print(outputString)
 
-print("*", input, "*")
+print("* ", userInput, " *")
 
 print(outputString)
