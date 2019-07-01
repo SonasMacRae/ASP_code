@@ -1,4 +1,9 @@
 # How to use the application
+
+**To use this application you need to install Matplotlib**
+<a href="example.com" target="_blank">New Tab</a>
+
+
 This application runs on the **terminal/command line**, open up your **terminal/command line** and navigate to the folder which holds this application and enter **python TSP.py** 
 
 navigate the menu's by entering the corresponding number into the terminal and press enter.
