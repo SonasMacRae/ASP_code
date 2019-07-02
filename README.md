@@ -4,4 +4,4 @@ This repository was developed for a workshop aimed at college students looking t
 
 This repository contains challenges and example projects to give college students a taste of what university is like.
 
-<img src="https://user-images.githubusercontent.com/36636474/60511933-19ffcf00-9ccb-11e9-9ec3-5d39929eb68f.png" width="1200" height="585" />
+<img src="https://user-images.githubusercontent.com/36636474/60511933-19ffcf00-9ccb-11e9-9ec3-5d39929eb68f.png" width="600" height="292" />
