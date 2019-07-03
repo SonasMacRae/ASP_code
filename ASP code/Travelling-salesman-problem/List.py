@@ -1,5 +1,9 @@
+# This class holds the functions that interact with
+# list of locations
+
 import math
 import random
+import os
 
 # Calculates Manhattan distance between two points
 # a and b hold the x,y coordinates
@@ -28,6 +32,9 @@ def RandomCoordinates(length):
 
 # Adds a new location to the list
 def AddCity(locations):
+    if len(locations) == 1000:
+        print("You have hit the max size of the list\n")
+        return locations
     temp = (random.randint(0, 100), random.randint(0, 100))
     if temp in locations:
         AddCity(locations)
@@ -47,6 +54,23 @@ def TakeAwayCity(locations):
 
     ViewList(locations)
     return locations
+
+
+def AddButtLoads(locations):
+    maxAdd = 1000 - len(locations)
+    print("How many locations would you like to add?")
+    print("(You can add up to ", maxAdd," locations)")
+    temp = int(input())
+    os.system('cls||clear')
+
+    if temp > maxAdd:
+        print("You tried to add too many locations\n")
+        return locations
+
+    for x in range(temp):
+        locations = AddCity(locations)
+    return locations
+
 
 
 # Just for fun, everytime a location is removed, one of these
@@ -74,5 +98,6 @@ def ViewList(locations):
     print("\n")
 
 def ResetList():
-    return [(1,6), (2,3), (3,7), (4,3), (6,2), (7,5), (9,8)]
-    
+    originalList = [(1,6), (2,3), (3,7), (4,3), (6,2), (7,5), (9,8)]
+    ViewList(originalList)
+    return originalList

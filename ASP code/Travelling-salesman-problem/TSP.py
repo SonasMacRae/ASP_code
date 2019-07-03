@@ -5,19 +5,23 @@ import visual as V
 import List as ListFunctions
 from itertools import permutations
 
+
 locations = [(1,6), (2,3), (3,7), (4,3), (6,2), (7,5), (9,8)]
 
 
 def UpdateLocations(locations):
     temp = ""
-    while temp != "Q":
-        os.system('cls||clear')
+    os.system('cls||clear')
+
+    while temp != "Q" or temp != "q":
         choice = False
+
         print("How would you like to update the list\n")
-        print("1 - Add a new location")
-        print("2 - Take away a location")
-        print("3 - Change the co-ordinates of all the locations randomly")
-        print("4 - Reset list")
+        print("1 - Add 1 new location")
+        print("2 - Take away 1 location")
+        print("3 - I want to add a butt load of locations")
+        print("4 - Change the co-ordinates of all the locations randomly")
+        print("5 - Reset list")
         print("Q - Go back")
 
         temp = input()
@@ -32,10 +36,14 @@ def UpdateLocations(locations):
             choice = True
 
         if temp == "3":
-            locations = ListFunctions.RandomCoordinates(len(locations))
+            locations = ListFunctions.AddButtLoads(locations)
             choice = True
 
         if temp == "4":
+            locations = ListFunctions.RandomCoordinates(len(locations))
+            choice = True
+
+        if temp == "5":
             locations = ListFunctions.ResetList()
             choice = True
 
@@ -81,11 +89,17 @@ def BruteForce(locations):
 
     V.DisplayRoute(path)
 
+
 # NN algorithm for finding a path
 def NearestNeighbour(locations):
+    start_time = time.time()
     shortDistance = 100000
     path = []
+    counter = 0
     for x in locations:
+        counter += 1
+        if counter % 10 == 0:
+            print("%.2f%% complete" %(counter/len(locations)*100), end='\r')
         tempPath = []
         tempLocations = copy.deepcopy(locations)
         currentLocation = x
@@ -109,10 +123,14 @@ def NearestNeighbour(locations):
             if len(tempLocations) == 0:
                 tempPath.append(tempPath[0])
                 totalDistance += ListFunctions.Distance(tempPath[len(tempPath) - 1], tempPath[len(tempPath) - 2])
+
         if totalDistance < shortDistance:
             shortDistance = totalDistance
             path = tempPath
+
     print("the total distance is ", shortDistance, " path is ",path)
+    print("This process took %.4f seconds to complete" %int(time.time() - start_time))
+
     V.DisplayRoute(path)
 
 
@@ -143,8 +161,6 @@ def Run(locations):
 
         if choice == False:
             print("Command not recognised, enter a number between 1 and 2\n")
-
-
 
 
 def App(locations):
